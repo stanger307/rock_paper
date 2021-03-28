@@ -1,4 +1,9 @@
- // computer plays randomly
+// define score variables
+let playerScore = 0;
+let computerScore = 0;
+
+
+// computer plays randomly
  function computerPlay(){
     let choice = Math.floor(Math.random() * 3);
     let tool = "";
@@ -15,18 +20,35 @@ function playRound(playerSelection, computerSelection){
     computerSelection = computerPlay();
     playerSelection = prompt("Choose your weapon: ");
     if (playerSelection.toLowerCase() === computerSelection){
-        alert("tie!");
+        console.log("tie!");
     }else if
         ((playerSelection.toLowerCase() == "rock" && computerSelection == "paper") ||
         (playerSelection.toLowerCase() == "paper" && computerSelection == "scissors") ||
         (playerSelection.toLowerCase() == "scissors" && computerSelection == "rock")){
-            alert("you lose!")
+            computerScore += 1;
+            console.log("you lose!");
         }else if
         ((playerSelection.toLowerCase() == "rock" && computerSelection == "scissors") ||
         (playerSelection.toLowerCase() == "paper" && computerSelection == "rock") ||
         (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper")){
-            alert("you win!")
+            playerScore += 1;
+            console.log("you win!");
         }else{
-            alert("you didn!t choose proper weapon.")
+            console.log("you didn!t choose proper weapon.");
         }
+    }
+function game(){    
+    while (computerScore < 5 && playerScore < 5) {
+        playRound();
+        console.log(`computer: ${computerScore}, you: ${playerScore}`);
+       
+    } 
+    if (playerScore > computerScore){
+        alert("Congratulations!!! you win!");
+    }else if(playerScore == computerScore){
+        alert("it's a Tie! what a match!");
+    }else{
+        alert("Oh no!! you lose the match!");
+    }  
 }
+
