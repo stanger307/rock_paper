@@ -44,11 +44,15 @@ function game(){
        
     } 
     if (playerScore > computerScore){
+        console.log("game is completed.")
         alert("Congratulations!!! you win!");
     }else if(playerScore == computerScore){
+        console.log("game is completed.")
         alert("it's a Tie! what a match!");
     }else{
+        console.log("game over.")
         alert("Oh no!! you lose the match!");
     }  
 }
 
+// query selectors
